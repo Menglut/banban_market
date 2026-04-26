@@ -1,17 +1,44 @@
-# banban_market
+# 반쪽마켓
+나의 반쪽, 이웃의 반쪽이 만나 온전한 하나가 되는 동네 생활
+1인 가구를 위한 '반띵 공구' 및 '디지털 품앗이' 매칭 플랫폼
 
-A new Flutter project.
+## 1. 프로젝트 개요 (Program Overview)
+반쪽마켓은 급증하는 1인 가구의 경제적 부담을 줄이고 심리적 고립감을 해소하기 위해 기획된 지역 기반 커뮤니티 앱입니다. 
+마트에서의 대용량 식재료 분할 구매(반띵 공구)와 혼자 해결하기 어려운 소소한 일상 돕기(디지털 품앗이)를 핵심 서비스로 제공합니다.
+**타겟 유저**: 대학가 자취생, 1인 가구 직장인
+**기획 의도**: '온전한 하나를 사기엔 부담스러운' 1인 가구의 결핍을 이웃과의 연결을 통해 해결
 
-## Getting Started
+## 2. 주요 기능 설명 (Key Features)
+### 🏠 홈 화면 (Home: 실시간 게시판)
+**리스트업**: 동네 이웃들이 올린 공구 및 품앗이 요청 글을 카드 형태로 시각화
+**상태 관리**: `Provider` 패턴을 사용하여 서버 없이도 앱 내에서 글을 등록하면 리스트가 실시간으로 업데이트되는 동적 기능 구현
+**UI/UX**: 카테고리별 아이콘 자동 할당을 통해 가독성 확보
 
-This project is a starting point for a Flutter application.
+### 🗺️ 안심 지도 (Safe-Zone Map)
+**프라이버시 보호**: 1인 가구의 정확한 집 주소 노출 방지를 위한 랜덤 좌표 알고리즘 적용
+**기능**: 실제 위치 기준 반경 200~500m 내의 무작위 지점에 마커를 표시하여 대략적인 거리감만 제공
+**인터랙션**: 지도 마커 터치 시 하단 바텀 시트(Bottom Sheet)를 통해 상세 정보 확인 및 매칭 요청 기능
 
-A few resources to get you started if this is your first Flutter project:
+### 👤 내 정보 & 설정 (Profile & OSS)
+**개인화**: 닉네임 수정 및 신뢰도 지수 확인
+**OSS 컴플라이언스**: 6주차 강의 내용을 반영하여 `showLicensePage` 기능을 통한 오픈소스 라이선스 고지 의무 준수
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## 3. 본인이 구현한 부분 (Implementation Details)
+본 프로젝트는 클론 코딩이 아닌 **100% 직접 기획 및 개발**한 프로젝트입니다.
+**State Management**: `ChangeNotifierProvider`를 활용한 전역 상태 관리 및 데이터 흐름 설계
+**Lifecycle Management**: `TextEditingController`의 `dispose()` 처리를 통한 메모리 누수 방지
+**Safe-Zone Algorithm**: `Random` 클래스와 위경도 오차 계산을 활용한 개인정보 보호 로직 구현
+**Navigation**: `BottomNavigationBar`를 활용한 탭 기반 레이아웃 구성
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 4. AI 활용 여부 및 범위 (Vibe Coding)
+본 프로젝트는 **AI(Gemini)와의 협업을 통한 '바이브 코딩(Vibe Coding)'** 방식으로 개발되었습니다.
+**아이디어 브레인스토밍**: '1인 가구'라는 키워드에서 '반쪽'이라는 서비스 명칭과 '안심 지도'라는 핵심 기능을 도출
+**UI 구조 설계**: Flutter의 위젯 트리 구조 최적화를 위해 AI의 레이아웃 제안을 적극 반영
+**트러블슈팅**: 기술적 난제 해결에 AI의 디버깅 역량 활용
+**코드 리팩토링**: 중복되는 UI 코드를 위젯으로 분리하고, Provider를 통한 데이터 처리 로직의 효율성 검토
+
+## 5. 라이선스 (License)
+본 프로젝트는 교육적 목적으로 제작되었으며, 다음 라이선스를 준수합니다.
+**Framework**: Flutter (BSD-3-Clause)
+**Open Source Libraries**: `provider`, `flutter_map`, `latlong2`, `flutter_launcher_icons`
+**App License**: MIT License 적용
